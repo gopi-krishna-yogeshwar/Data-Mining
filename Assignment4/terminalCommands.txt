@@ -1,0 +1,14 @@
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd6
+
+export PYSPARK_PYTHON=python3.6
+
+/opt/spark/spark-3.1.2-bin-hadoop3.2/bin/spark-submit --packages graphframes:graphframes:0.8.2-spark3.1-s_2.12  --class task1 --executor-memory 4G --driver-memory 4G hw4.jar 7 /mnt/vocwork5/ddd_v1_w_AHx_1031904/asn823280_7/asn823281_1/resource/asnlib/publicdata/ub_sample_data.csv output_scala_1.csv
+
+/opt/spark/spark-3.1.2-bin-hadoop3.2/bin/spark-submit --class task2 --executor-memory 4G --driver-memory 4G hw4.jar 7 /mnt/vocwork5/ddd_v1_w_AHx_1031904/asn823280_7/asn823281_1/resource/asnlib/publicdata/ub_sample_data.csv between.csv output.csv
+
+/opt/spark/spark-3.1.2-bin-hadoop3.2/bin/spark-submit --packages graphframes:graphframes:0.8.2-spark3.1-s_2.12 task1.py 7 /mnt/vocwork5/ddd_v1_w_AHx_1031904/asn823280_7/asn823281_1/resource/asnlib/publicdata/ub_sample_data.csv output_python_1.csv
+
+/opt/spark/spark-3.1.2-bin-hadoop3.2/bin/spark-submit task2.py 7 /mnt/vocwork5/ddd_v1_w_AHx_1031904/asn823280_7/asn823281_1/resource/asnlib/publicdata/ub_sample_data.csv between_python.csv output_python_2.csv
+
+
+libraryDependencies += "org.apache.spark" %% "spark-graphx" % "3.1.2"
